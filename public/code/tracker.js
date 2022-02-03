@@ -17,6 +17,7 @@ async function fetchData() {
     container.innerHTML = `
     <div>${entry.mood}</div>
     <div>${entry.aqi}</div>
+    <img src="${entry.image64}">
     
     `
     document.querySelector('section').append(container)

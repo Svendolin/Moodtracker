@@ -43,16 +43,26 @@ app.get('/weather/:latlon', async (req, res) => {
   const weatherData = await weatherResponse.json()
 
   //Requerst für AQI
-  const aqiUrl = `https://api.waqi.info/feed/geo:${latlon[0]};${latlon[1]}/?token=${apiApiKey}`
+  const aqiUrl = `https://api.waqi.info/feed/geo:${latlon[0]};${latlon[1]}/?token=${aqiApiKey}`
   const aqiResponse = await fetch(aqiUrl)
   const aqiData = await aqiResponse.json()
   const data = {
     weather: weatherData,
-    aqi: 'tbd' // air quality index = Zweite API
+    aqi: aqiData // air quality index = Zweite API
   }
 
   res.json(data)
 
+})
+
+app.post('/api', (req, res) => {
+  const data = req.body
+  //console.log(data)
+  data.timestamp = Date.now()
+
+  database.insert(data)
+  data.success = true
+  res.json(data)
 })
 
 // Verwantwortlich für DATABASE API (Post / Insert data in die Database, welche vorher erstellt und geladen wurde)
