@@ -72,7 +72,7 @@ function setup() {
     e.preventDefault()
 
     // Messages resetten (Wenn man mehrmals klicken würde)
-    // SPECIAL: Shorthand IF statement 
+    // SPECIAL: SHORTHAND IF-STATEMENT
     if(document.querySelector('.success-message')) (document.querySelector('.success-message')).remove()
     if(document.querySelector('.error-message')) (document.querySelector('.error-message')).remove()
     // *Input Text lesen
@@ -96,13 +96,13 @@ function setup() {
     // Fetch POST-REQUEST (post request hier, da wir es nicht über die URL weitergeben möchten)
     // 1) Objekt definieren (Hier arbeiten wir mit Doppelpunkte : statt = in Objekten)
     const options = {
-      // Post um daten weiterzugeben:
+      // 2) Post um daten weiterzugeben:
       method : 'POST',
-      // Header definieren:
+      // 3) Header definieren:
       headers: {
         'Content-Type': 'application/json'
       },
-      // Inhalt definieren:
+      // 4) Inhalt definieren:
       body: JSON.stringify(data) // (JS auf JSON = Stringify wandelt das um)
     }
     const response = await fetch('/api', options)

@@ -13,6 +13,7 @@ async function fetchData() {
   data.forEach( entry => {
     const container = document.createElement('div')
 
+    console.log(entry)
     // Template string ``
     container.innerHTML = `
     <div>${entry.mood}</div>
